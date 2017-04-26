@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<program name="тест1">
+	<command speed="10" angle="180" />
+	<command speed="10" angle="360" />
+	<command speed="5" angle="270" />
+	<command speed="8" angle="720" />
+	<command speed="-14" angle="1200" />
+	<command speed="-10" angle="360" />
+	<command speed="0" angle="2000" />
+	<command speed="-8" angle="180" />
+</program>
