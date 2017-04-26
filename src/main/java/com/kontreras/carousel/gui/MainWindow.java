@@ -13,7 +13,10 @@ public class MainWindow extends JFrame {
 
     private AppController controller;
 	
-	public MainWindow(AppController controller, Plotter graphPlotter, Plotter ringPlotter, Indicator indicator) {
+	public MainWindow(AppController controller,
+                      Plotter graphPlotter,
+                      Plotter ringPlotter,
+                      Indicator indicator) {
 
         this.controller = controller;
 

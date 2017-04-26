@@ -24,25 +24,17 @@ public class CarouselApp {
     public static final Logger LOG = Logger.getLogger(CarouselApp.class);
 
     public static void main(String[] args) {
-        // PropertyConfigurator.configure("log4j.properties");
-        // testserial();
-        //	loadConfig();
-        // init();
-
-        int a = 3;
-        int b = 10;
-        int c = 20;
-        String str = "" + a + b + c;
-        System.out.println(str);
-        byte ar[] = str.getBytes();
-        System.out.println(str.getBytes().length);
-
-        for (int i = 0; i < ar.length; i++) {
-         System.out.println(ar[i]);
-        }
-
+        // Конфигурируем конфигуратор свойств ?)
+        PropertyConfigurator.configure("log4j.properties");
+        // Выдодим в консоль доступные ком-порты
+        testSerial();
+        // Загружаем из файла конфигурацию приложения
+        loadConfig();
+        // Инициализируем необходимые для работы объекты, и создаем MainWindow
+        init();
     }
 
+    // Инициализируем MainWindow, и передаем ему необходимые для работы объекта
     private static void init() {
         ProgramList progList = new ProgramListImpl();
         progList.loadPrograms();
@@ -67,6 +59,7 @@ public class CarouselApp {
         createMainWindow(cmdDrawBuffer, cmdSerialBuffer, progList, graphPlotter, ringPlotter, indicator);
     }
 
+    // Создаем MainWindow
     private static void createMainWindow(final CommandBuffer cmdDrawBuffer, final CommandBuffer cmdSerialBuffer, final ProgramList progList, final Plotter graphPlotter, final Plotter ringPlotter, final Indicator indicator) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -82,6 +75,7 @@ public class CarouselApp {
         });
     }
 
+    // Получаем свойства приложения, из файла
     public static void loadConfig() {
         Properties prop = new Properties();
         try {
@@ -98,7 +92,8 @@ public class CarouselApp {
         }
     }
 
-    public static void testserial() {
+    // Проверяем доступные COM-порты
+    public static void testSerial() {
         String[] portNames = SerialPortList.getPortNames();
         LOG.info("Available com ports:");
         for (int i = 0; i < portNames.length; i++) {

@@ -8,7 +8,7 @@ public class Command {
     private int speed;
     // Угол
     private int angle;
-    // Разобраться
+    // Тип команды
     private CommandType type;
 
     public Command(int angle, int speed, CommandType type) {
@@ -34,7 +34,7 @@ public class Command {
     }
 
     public long getTime() {
-        return speed==0?angle:Math.abs(1000*angle*60/speed/360);
+        return speed == 0 ? angle : Math.abs(1000 * angle * 60 / speed / 360);
     }
 
     public CommandType getType() {
@@ -47,7 +47,7 @@ public class Command {
 
     @Override
     public String toString() {
-        return  "angle=" + angle +
+        return "angle=" + angle +
                 ", speed=" + speed +
                 ", time=" + getTime() +
                 '}';
